@@ -8,15 +8,17 @@ If the number is a multiple of both 3 and 4, print the string "LoopyLighthouse" 
 //Function to take in range of numbers to be printed(startLimit & endLimit) along with print Strings for 2 factors to check and print in place of numbers
 const printLoopyLighthouse = function(startLimit, endLimit, printStr1, factor1, printStr2, factor2) {
   for (let x = startLimit; x <= endLimit; x++) {
-    if (x % factor1 === 0 && x % factor2 === 0) {  // If divisible by 3 and 4 then print LoopyLighthouse
-      console.log(`${printStr1}${printStr2}`);
-    } else if (x % factor1 === 0) {    // If divisible by 3 then print Loopy
-      console.log(printStr1);
-    } else if (x % factor2 === 0) {   // If divisible by 4 then print Lighthouse
-      console.log(printStr2);
-    } else {    // All other cases print number
-      console.log(x);
+    let output = "";
+    
+    if (x % factor1 === 0) {
+      output += printStr1;
     }
+
+    if (x % factor2 === 0) {
+      output += printStr2;
+    }
+
+    console.log((output === "") ? x : output);
   }
 };
 
